@@ -5,9 +5,7 @@
   "version": "0.1.0",
   "author": "Oscar Mejia <pomejia@gmail.com>",
   "dependencies": {
-    "@types/react-helmet": "^6.1.0",
     "gatsby": "^2.24.67",
-    "gatsby-cli": "^2.12.107",
     "gatsby-image": "^2.4.20",
     "gatsby-plugin-manifest": "^2.4.33",
     "gatsby-plugin-offline": "^3.2.30",
@@ -15,6 +13,7 @@
     "gatsby-plugin-react-helmet": "^3.3.12",
     "gatsby-plugin-sharp": "^2.6.38",
     "gatsby-source-filesystem": "^2.3.32",
+    "gatsby-source-wordpress-experimental": "^1.7.5",
     "gatsby-transformer-sharp": "^2.5.16",
     "postcss": "^8.1.1",
     "prop-types": "^15.7.2",
@@ -23,6 +22,8 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
+    "@types/react-helmet": "^6.1.0",
+    "@graphql-codegen/cli": "1.17.10",
     "@types/node": "^12.12.11",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.4",
@@ -33,7 +34,9 @@
     "eslint-plugin-prettier": "^3.1.4",
     "prettier": "2.1.1",
     "tailwindcss": "^1.8.13",
-    "typescript": "^3.9.7"
+    "typescript": "^3.9.7",
+    "@graphql-codegen/typescript-operations": "1.17.8",
+    "@graphql-codegen/typescript": "1.17.10"
   },
   "keywords": [
     "gatsby"
@@ -48,7 +51,8 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "type-check": "tsc --noEmit",
-    "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx,.js"
+    "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx,.js",
+    "generate": "graphql-codegen --config codegen.yml"
   },
   "repository": {
     "type": "git",
