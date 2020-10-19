@@ -1,6 +1,4 @@
-import { graphql } from "gatsby"
-
-export const ABOUT_PAGE = graphql`
+export const ABOUT_PAGE = `
   query ABOUT_PAGE {
     wpPage(slug: { eq: "about" }) {
       blocks {

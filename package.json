@@ -15,6 +15,7 @@
     "gatsby-source-filesystem": "^2.3.32",
     "gatsby-source-wordpress-experimental": "^1.7.5",
     "gatsby-transformer-sharp": "^2.5.16",
+    "html-react-parser": "^0.14.0",
     "postcss": "^8.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
