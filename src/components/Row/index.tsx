@@ -26,7 +26,7 @@ export const Row = ({
   const imageSliderElement = () => {
     if (isEven(rowCount)) {
       return (
-        <div className="row__img-wrapper w-1/2" ref={ref}>
+        <div className="row__img-wrapper w-full lg:w-1/2" ref={ref}>
           <Img
             className={`row__img-wrapper__img--left ${
               visible && "row__img-wrapper__img--slide-right"
@@ -37,7 +37,7 @@ export const Row = ({
       )
     } else {
       return (
-        <div className="row__img-wrapper w-1/2 " ref={ref}>
+        <div className="row__img-wrapper w-full lg:w-1/2" ref={ref}>
           <Img
             className={`row__img-wrapper__img--right ${
               visible && "row__img-wrapper__img--slide-left"
@@ -51,12 +51,16 @@ export const Row = ({
 
   return (
     <div
-      className={`row flex flex-col py-10 md:items-center ${
-        isEven(rowCount) ? "md:flex-row-reverse" : "md:flex-row"
+      className={`row flex flex-col py-10 md:items-center justify-between ${
+        isEven(rowCount) ? "lg:flex-row-reverse" : "lg:flex-row"
       } `}
     >
       {imageSliderElement()}
-      <div className={`pt-5 ${isEven(rowCount) ? "md:pr-16" : "md:pl-16"}`}>
+      <div
+        className={`pt-5 max-w-none md:max-w-2xl ${
+          isEven(rowCount) ? "md:pr-20" : "md:pl-20"
+        }`}
+      >
         <h2>{title}</h2>
         <h3>{subTitle}</h3>
         <div>{parse(description)}</div>
