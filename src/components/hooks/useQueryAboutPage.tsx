@@ -5,6 +5,7 @@ export const useQueryAboutPage = () => {
       query ABOUT_PAGE {
         wpPage(slug: { eq: "about" }) {
           blocks {
+            name
             ... on WpAcfIntroBlock {
               acf: ACFIntroBlockFields {
                 description
@@ -19,9 +20,18 @@ export const useQueryAboutPage = () => {
                 description
                 subtitle
                 title
+                image {
+                  altText
+                  localFile {
+                    childImageSharp {
+                      fluid(maxWidth: 750, maxHeight: 370) {
+                        ...GatsbyImageSharpFluid
+                      }
+                    }
+                  }
+                }
               }
             }
-            name
           }
         }
       }

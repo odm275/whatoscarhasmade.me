@@ -9,9 +9,9 @@ interface Props {
 
 export const Intro = ({ subtitle, title, description }: Props) => {
   return (
-    <div>
-      <h1>{title}</h1>
-      <h2>{subtitle}</h2>
+    <div className="pt-10 pb-12">
+      <h1>| {title}</h1>
+      <h2 className="py-2">{subtitle}</h2>
       <div>{parse(description)}</div>
     </div>
   )

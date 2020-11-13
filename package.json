@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Oscar Mejia <pomejia@gmail.com>",
   "dependencies": {
+    "framer-motion": "^2.9.4",
     "gatsby": "^2.24.67",
     "gatsby-image": "^2.4.20",
     "gatsby-plugin-manifest": "^2.4.33",
