@@ -51,14 +51,14 @@ export const Row = ({
 
   return (
     <div
-      className={`row flex flex-col py-10 md:items-center justify-between ${
+      className={`row flex flex-col py-10 md:items-center ${
         isEven(rowCount) ? "lg:flex-row-reverse" : "lg:flex-row"
       } `}
     >
       {imageSliderElement()}
       <div
-        className={`pt-5 max-w-none md:max-w-2xl ${
-          isEven(rowCount) ? "md:pr-20" : "md:pl-20"
+        className={`pt-5 max-w-none md:max-w-xl ${
+          isEven(rowCount) ? "md:mr-auto" : "md:ml-auto"
         }`}
       >
         <h2>{title}</h2>

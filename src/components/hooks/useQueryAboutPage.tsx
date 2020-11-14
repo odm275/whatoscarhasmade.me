@@ -24,7 +24,7 @@ export const useQueryAboutPage = () => {
                   altText
                   localFile {
                     childImageSharp {
-                      fluid(maxWidth: 750, maxHeight: 370) {
+                      fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                       }
                     }

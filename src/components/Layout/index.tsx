@@ -7,7 +7,7 @@ export const Layout: FunctionComponent = ({ children }) => (
     <Header />
     <div className="flex-1 px-6">
       <div className="flex flex-col items-center">
-        <div className="max-w-none lg:max-w-screen-4xl">{children}</div>
+        <div className="max-w-none lg:max-w-screen-xl w-full">{children}</div>
       </div>
     </div>
     <Footer />
