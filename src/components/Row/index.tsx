@@ -51,7 +51,7 @@ export const Row = ({
 
   return (
     <div
-      className={`row flex flex-col py-10 md:items-center ${
+      className={`row flex flex-col my-40 md:items-center ${
         isEven(rowCount) ? "lg:flex-row-reverse" : "lg:flex-row"
       } `}
     >
