@@ -1,8 +1,8 @@
 import React from "react"
 import parse from "html-react-parser"
 import Img from "gatsby-image"
-import { useOnScreen } from "../hooks/useOnScreen"
-import { isEven } from "../../lib/utils"
+import { useOnScreen } from "../../hooks/useOnScreen"
+import { isEven } from "../../../lib/utils"
 
 interface Props {
   title: string

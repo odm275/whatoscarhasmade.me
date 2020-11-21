@@ -6,13 +6,7 @@ export const useQueryAboutPage = () => {
         wpPage(slug: { eq: "about" }) {
           blocks {
             name
-            ... on WpAcfIntroBlock {
-              acf: ACFIntroBlockFields {
-                description
-                title
-                subtitle
-              }
-            }
+            order
             ... on WpAcfRowBlock {
               dynamicContent
               originalContent
@@ -32,12 +26,19 @@ export const useQueryAboutPage = () => {
                 }
               }
             }
+            ... on WpAcfIntroBlock {
+              acf: ACFIntroBlockFields {
+                description
+                title
+                subtitle
+              }
+            }
           }
         }
       }
     `
   )
-  return data.wpPage.blocks
+  return data
 }
 
 export default useQueryAboutPage
