@@ -4,14 +4,21 @@
 
 @layer base {
   h1 {
-    @apply text-xl;
-    color: #ec6152;
+    @apply text-2xl text-secondary;
   }
   h2 {
-    @apply text-3xl;
-    font-weight: 800;
-    color: rgb(20, 18, 19);
+    @apply text-4xl font-extrabold text-primary;
   }
+  h3 {
+    @apply text-3xl font-extrabold text-primary;
+  }
+
+  p {
+    @apply mx-4;
+  }
+}
+.active-link {
+  @apply text-secondary;
 }
 
 /* custom animations for row slide  */
@@ -42,4 +49,13 @@
   position: absolute;
   transition: 1s;
   right: 0;
+}
+
+.front-page-banner {
+  width: 100vw;
+  position: relative;
+  margin-left: -50vw;
+  left: 50%;
+  display: flex;
+  justify-content: center;
 }

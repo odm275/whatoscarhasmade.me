@@ -17,23 +17,25 @@ export const FrontPageBanner = ({
   resume,
 }: Props) => {
   return (
-    <div className="bg-primary -mx-6 p-6">
-      <h4 className="text-white my-3">{title}</h4>
-      <h1 className="text-white my-3">{subtitle}</h1>
-      <div className="text-white">{parse(description)}</div>
-      <div className="flex flex-col">
-        <a
-          className="text-primary bg-white text-center my-3 p-3"
-          href={`mailto:${email}`}
-        >
-          {email}
-        </a>
-        <a
-          className="text-primary bg-white text-center p-3"
-          href={resume.mediaItemUrl}
-        >
-          Download CV
-        </a>
+    <div className="bg-secondary front-page-banner">
+      <div className="-mx-6 p-6 lg:max-w-screen-xl w-full">
+        <h4 className="text-white my-3">{title}</h4>
+        <h1 className="text-white my-3">{subtitle}</h1>
+        <div className="text-white">{parse(description)}</div>
+        <div className="flex flex-col">
+          <a
+            className="text-secondary bg-white text-center my-3 p-3 font-bold"
+            href={`mailto:${email}`}
+          >
+            {email}
+          </a>
+          <a
+            className="text-secondary bg-white text-center p-3 font-bold"
+            href={resume.mediaItemUrl}
+          >
+            Download CV
+          </a>
+        </div>
       </div>
     </div>
   )

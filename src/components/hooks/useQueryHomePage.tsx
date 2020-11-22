@@ -6,6 +6,7 @@ export const useQueryHomePage = () => {
         wpPage(slug: { eq: "home-page" }) {
           blocks {
             name
+            order
             ... on WpAcfFrontPageBannerBlock {
               acf: ACFFrontPageBannerBlockFields {
                 description
@@ -15,6 +16,31 @@ export const useQueryHomePage = () => {
                 title
                 resume {
                   mediaItemUrl
+                }
+              }
+            }
+            ... on WpAcfProjectPreviewBlock {
+              name
+              acf: ACFProjectPreviewBlockFields {
+                projectReference {
+                  ... on WpProject {
+                    title
+                    slug
+                    PostTypeProjectFields {
+                      description
+                      subtitle
+                      image {
+                        altText
+                        localFile {
+                          childImageSharp {
+                            fluid(maxWidth: 750) {
+                              ...GatsbyImageSharpFluid
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }

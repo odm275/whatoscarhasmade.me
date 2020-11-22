@@ -12,11 +12,10 @@ import { Intro, Row, FrontPageBanner } from "../../components/blocks"
 const ROW = "acf/row"
 const INTRO = "acf/intro"
 const FRONT_PAGE_BANNER = "acf/front-page-banner"
-
+const PROJECT_PREVIEW = "acf/project-preview"
 const blockToComponent = (block: any) => {
   const { name, acf: props, order } = block
   let component: any = null
-  console.log("props", props)
   switch (name) {
     case INTRO:
       component = <Intro {...props} />
@@ -24,8 +23,21 @@ const blockToComponent = (block: any) => {
     case ROW:
       component = <Row {...props} rowCount={order} />
       break
+    case PROJECT_PREVIEW:
+      // Works off a project reference.
+      // We need to furthure destructure in this case.
+
+      const {
+        title,
+        slug,
+        PostTypeProjectFields: projectProps,
+      } = props.projectReference[0]
+
+      const organizedProps = { title, slug, rowCount: order, ...projectProps }
+      component = <Row {...organizedProps} subtitleOn={false} />
+
+      break
     case FRONT_PAGE_BANNER:
-      console.log("props", props)
       component = <FrontPageBanner {...props} />
       break
     default:

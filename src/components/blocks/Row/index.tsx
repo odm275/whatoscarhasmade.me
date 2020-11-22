@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import parse from "html-react-parser"
 import Img from "gatsby-image"
 import { useOnScreen } from "../../hooks/useOnScreen"
@@ -6,24 +7,30 @@ import { isEven } from "../../../lib/utils"
 
 interface Props {
   title: string
-  subTitle?: string | null
+  subtitle?: string | null
   description: string
   image: string
   rowCount: number
+  slug?: string
+  subtitleOn?: boolean
 }
 
 export const Row = ({
   title,
-  subTitle = null,
+  subtitle = null,
   description,
   image,
   rowCount,
+  slug,
+  subtitleOn,
 }: Props) => {
+  console.log("slugggg", slug)
   const [ref, visible] = useOnScreen({
     rootMargin: "0px",
   })
 
   const imageSliderElement = () => {
+    const fluidImage = image ? image.localFile.childImageSharp.fluid : null
     if (isEven(rowCount)) {
       return (
         <div className="row__img-wrapper w-full lg:w-1/2" ref={ref}>
@@ -31,7 +38,7 @@ export const Row = ({
             className={`row__img-wrapper__img--left ${
               visible && "row__img-wrapper__img--slide-right"
             }`}
-            fluid={image.localFile.childImageSharp.fluid}
+            fluid={fluidImage}
           />
         </div>
       )
@@ -42,12 +49,23 @@ export const Row = ({
             className={`row__img-wrapper__img--right ${
               visible && "row__img-wrapper__img--slide-left"
             }`}
-            fluid={image.localFile.childImageSharp.fluid}
+            fluid={fluidImage}
           />
         </div>
       )
     }
   }
+
+  const linkProjectElement = slug ? (
+    <Link
+      to={`/${slug}`}
+      className="inline-block text-white bg-secondary text-center p-3"
+    >
+      View Case Study
+    </Link>
+  ) : null
+
+  const subtitleElement = subtitleOn ? <h3>{subtitle}</h3> : null
 
   return (
     <div
@@ -57,13 +75,14 @@ export const Row = ({
     >
       {imageSliderElement()}
       <div
-        className={`pt-5 max-w-none md:max-w-xl ${
+        className={`mt-5 max-w-none md:max-w-xl ${
           isEven(rowCount) ? "md:mr-auto" : "md:ml-auto"
         }`}
       >
-        <h2>{title}</h2>
-        <h3>{subTitle}</h3>
-        <div>{parse(description)}</div>
+        <h3>{title}</h3>
+        <h4>{subtitleElement}</h4>
+        {parse(description)}
+        {linkProjectElement}
       </div>
     </div>
   )

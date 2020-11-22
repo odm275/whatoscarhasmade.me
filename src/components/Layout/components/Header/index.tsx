@@ -7,6 +7,7 @@ interface MobileSideBarProps {
 const activeStyles = {
   color: "gray",
 }
+
 const MobileSideBar = ({ isOpen }: MobileSideBarProps) => {
   const isOpenStyle = isOpen ? "translate-x-0" : "-translate-x-full"
   return (
@@ -47,6 +48,8 @@ const MobileSideBar = ({ isOpen }: MobileSideBarProps) => {
   )
 }
 
+const DesktopSideBar = () => {}
+
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -61,12 +64,27 @@ export const Header = () => {
   )
   return (
     <header className="bg-white">
+      <MobileSideBar isOpen={isOpen} />
       <div className="flex items-center justify-between px-6 py-3">
         <h1>OM</h1>
-        <MobileSideBar isOpen={isOpen} />
+        <div className="hidden md:block">
+          <Link to="/" className="mx-4" activeClassName="active-link">
+            HOMEPAGE
+          </Link>
+          <Link to="/about" className="mx-4" activeClassName="active-link">
+            ABOUT
+          </Link>
+          <Link
+            to="/latest-work"
+            className="mx-4"
+            activeClassName="active-link"
+          >
+            LATEST WORK
+          </Link>
+        </div>
         <button
           type="button"
-          className="block text-black hover:text-gray-500 focus:text-gray-500 focus:outline-none z-30"
+          className="block md:hidden text-black hover:text-gray-500 focus:text-gray-500 focus:outline-none z-30"
           onClick={() => setIsOpen(!isOpen)}
         >
           {toggleIcon}

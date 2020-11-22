@@ -8,8 +8,6 @@ export const useQueryAboutPage = () => {
             name
             order
             ... on WpAcfRowBlock {
-              dynamicContent
-              originalContent
               acf: ACFRowBlockFields {
                 description
                 subtitle
