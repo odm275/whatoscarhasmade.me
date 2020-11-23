@@ -63,7 +63,7 @@ export const Header = () => {
     </svg>
   )
   return (
-    <header className="bg-white">
+    <header className="bg-white dark:bg-black">
       <MobileSideBar isOpen={isOpen} />
       <div className="flex items-center justify-between px-6 py-3">
         <h1>OM</h1>

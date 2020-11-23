@@ -14,7 +14,7 @@
   }
 
   p {
-    @apply mx-4;
+    @apply my-4;
   }
 }
 .active-link {
